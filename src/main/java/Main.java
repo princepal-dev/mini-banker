@@ -19,11 +19,14 @@ public class Main {
 
     // Routers
     server.createContext("/health", HealthController.getController());
-
+  
+    // Threading env and start
+    server.setExecutor(null);
+    
     // Starting the server
     server.start();
 
     // Printing server is running
-    System.out.println("server.Server running on PORT :" + config.getPort());
+    System.out.println("Server running on PORT :" + config.getPort());
   }
 }

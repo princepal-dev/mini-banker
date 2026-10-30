@@ -15,11 +15,11 @@ public class AppConfig {
   private AppConfig() {
     Properties properties = PropertiesLoader.load("application.properties");
 
-    this.port = Integer.parseInt(properties.getProperty("server.port", "8080"));
-    this.address = properties.getProperty("server.address", "127.0.0.1");
     this.dbUrl = properties.getProperty("db.url");
     this.dbUsername = properties.getProperty("db.username");
     this.dbPassword = properties.getProperty("db.password");
+    this.address = properties.getProperty("server.address", "127.0.0.1");
+    this.port = Integer.parseInt(properties.getProperty("server.port", "8080"));
 
     validate();
   }
