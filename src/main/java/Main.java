@@ -1,4 +1,5 @@
 import config.AppConfig;
+import controller.AuthController;
 import controller.HealthController;
 import database.DatabaseConnection;
 import server.Server;
@@ -18,6 +19,7 @@ public class Main {
     HttpServer server = Server.getServer(config.getAddress(), config.getPort(), 0);
 
     // Routers
+    server.createContext("/auth", AuthController.getController());
     server.createContext("/health", HealthController.getController());
   
     // Threading env and start
